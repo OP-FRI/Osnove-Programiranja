@@ -14,15 +14,19 @@ public class Zaporedja{
 		a = in.nextInt();
 		System.out.print("Vnesi konèno mejo: ");
 		b = in.nextInt();
-		System.out.print("Vnesi korak K: ");
+		System.out.print("Vnesi korak: ");
 		k = in.nextInt();
 		
 		//preveri pristnost uporabnikovega vnosa ;)
-		if(k == 0){System.out.println("K ne sme biti 0!");}
-		if(a<b && k<0){System.out.println("K bi v tem primeru moral biti pozitiven...");}
-		if(a>b && k>0){System.out.println("K bi v tem primeru moral biti negativen...");}
-
+		if(k == 0){System.out.println("K ne sme biti 0!");System.exit(0);}
+		if(a<b && k<0){System.out.println("Predznak koraka ni usklajen z mejama.");System.exit(0);}
+		if(a>b && k>0){System.out.println("Predznak koraka ni usklajen z mejama.");System.exit(0);}
+		
 		for(int i = a; i <= b; i+=k){
+			System.out.println(i);
+		}
+		
+		for(int i = a; i >= b; i+=k){
 			System.out.println(i);
 		}
 	}
