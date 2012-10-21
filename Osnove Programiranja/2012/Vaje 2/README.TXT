@@ -1,3 +1,4 @@
-Delitelji :)
-Piramida [naloga iz 2. vaj]
+Delitelji
+Piramida
 EvroŠop
+Smuèanje
