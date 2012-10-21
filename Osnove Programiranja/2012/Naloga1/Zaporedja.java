@@ -18,9 +18,9 @@ public class Zaporedja{
 		k = in.nextInt();
 		
 		//preveri pristnost uporabnikovega vnosa ;)
-		if(k == 0){System.out.println("K ne sme biti 0, pobalin!");}
-		if(a<b && k<0){System.out.println("K bi v tem primeru moral biti pozitiven... noob...");}
-		if(a>b && k>0){System.out.println("K bi v tem primeru moral biti negativen... noob...");}
+		if(k == 0){System.out.println("K ne sme biti 0!");}
+		if(a<b && k<0){System.out.println("K bi v tem primeru moral biti pozitiven...");}
+		if(a>b && k>0){System.out.println("K bi v tem primeru moral biti negativen...");}
 
 		for(int i = a; i <= b; i+=k){
 			System.out.println(i);
