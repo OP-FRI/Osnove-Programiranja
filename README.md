@@ -18,5 +18,10 @@ Kako naprej:
 Najbolje je, da ko neko nalogo želite popraviti ali dodati, si repozitorij skopirate na svoj profil(Fork), ga prenesete na svoj računalnik, kjer ga uredite in nato te spremembe submitate na originalni repozitorij.(Pull request)
 Lepo bi bilo če sledite dosedanjim načinom imenovanja in da h kodi prilagate komentarje. (Če veste kako lahko tudi po svoje)
 
+Pomembno!:
+------------
+Prosim "pushajte" samo tekstovne datoteke z izvorno kodo in ne prevedenih datotek ali konfiguracijskih datotek vašega IDE-ja (okolja).
+Te ohranite lokalno.
+
 -------------
 Če sem kaj pozabil, ali kdo želi da se spremeni lahko uredite ta file.
