@@ -26,3 +26,4 @@ public class Vaja3 {
     }
     
 }
+//Piramida zvezdic

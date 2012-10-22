@@ -23,3 +23,4 @@ public class Vaja1 {
         }
     }
 }
+//Rastava na desetice, stotice, ...
