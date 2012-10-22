@@ -1,10 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package vaje2;
-
-/**
+﻿/**
  *
  * @author aj2762
  */
@@ -43,4 +37,8 @@ public class Vaja4 {
         System.out.print("\n");
     }
 }
-//Vozni red
+
+/**
+ *Vozni red:
+ *Program naj bi izpisal vozni red avtobusa glede na interval ki mu ga določimo in v mejah začetne in končne ure.
+ */
