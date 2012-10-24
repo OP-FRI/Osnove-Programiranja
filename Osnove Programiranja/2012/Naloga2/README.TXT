@@ -1,6 +1,6 @@
 Delitelji
 Piramida
-EvroŠop
-Smuèanje
+EvroÅ op
+SmuÄanje
 
-Naloge nimajo napisanega avtorja bi pa vseeno prosil da jih ne kopirate kar vsepovprek. Svoje razlièice mirno naloite.
+Naloge nimajo napisanega avtorja bi pa vseeno prosil da jih ne kopirate kar vsepovprek. Svoje razliÄice mirno naloÅ¾ite.
