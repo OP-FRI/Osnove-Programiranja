@@ -23,10 +23,8 @@ public class Postevanka1 {
     
     public static void Postevanka(){
         
-        if (b<0){
+        if (b<=0){
             System.out.print("\nŠtevilo ni pozitivno!");                    
-        }else if(b==0){
-            System.out.print("\nŠtevilo ni pozitivno!");
         }else if (b>0){
             for (int i=1;i<=b;i++){
                 System.out.println(a + "*" + i + "=" + (a*i));
