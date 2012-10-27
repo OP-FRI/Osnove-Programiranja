@@ -18,7 +18,7 @@ public class PredvolilniGolaz{
 		System.out.print("Vnesite začetno zalogo denarja: ");
 		double budget = stdin.nextDouble();
 
-		while(budget >= 0){
+		while(budget > 0){
 			vino = false;
 			System.out.print("\nVnesite ceno kosila: ");
 			cenaKosila = stdin.nextDouble();
@@ -29,7 +29,7 @@ public class PredvolilniGolaz{
 			koncnaCena = cenaPogostitve(cenaKosila, stKosil, vino);
 			System.out.println("Skupna cena pogostitve znaša "+koncnaCena+" EUR.");
 			budget -= koncnaCena;
-			if(budget >= 0){System.out.println("Trenutna zaloga denarja znaša "+budget+" EUR.");}
+			if(budget > 0){System.out.println("Trenutna zaloga denarja znaša "+budget+" EUR.");}
 		}
 		System.out.println("Zmanjkalo je denarja!");
 	}
