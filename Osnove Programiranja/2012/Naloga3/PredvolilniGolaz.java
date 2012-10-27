@@ -15,7 +15,7 @@ public class PredvolilniGolaz{
 		int stKosil;
 		double cenaKosila, koncnaCena;
 		Scanner stdin = new Scanner(System.in);
-		System.out.print("Vnesite začentno zalogo denarja: ");
+		System.out.print("Vnesite začetno zalogo denarja: ");
 		double budget = stdin.nextDouble();
 
 		while(budget >= 0){
