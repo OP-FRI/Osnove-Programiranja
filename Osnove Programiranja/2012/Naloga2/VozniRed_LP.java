@@ -1,11 +1,11 @@
-/*
+﻿/*
 Luka Pušić <luka@pusic.si>
 Vozni red
 */
 
 import java.util.Scanner;
 
-public class Vaja4_LP{
+public class VozniRed_LP{
 	public static void main(String[] args){
 		Scanner stdin = new Scanner(System.in);
 		System.out.print("Ura začetka vožnje: ");
