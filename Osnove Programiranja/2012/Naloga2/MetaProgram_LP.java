@@ -4,7 +4,7 @@ FRI, 2012
 Metaprogram
 */
 
-public class Vaja5_LP{
+public class MetaProgram_LP{
 	public static void main(String[] args){
 		final int n = 4;
 		String metaprogram = "";
