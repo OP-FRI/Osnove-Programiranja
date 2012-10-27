@@ -21,7 +21,7 @@ public class VrazeverniBoris{
 			System.out.print(dan+". dan: ");
 			dozaDneva = (dan % 7 == 0) ?  5 : 3;
 			while(stLihih < dozaDneva){
-				randSt = rand.nextInt(7)+1;
+				randSt = rand.nextInt(6)+1;
 				if(randSt % 2 != 0){stLihih++;}
 				stMetov++;
 				System.out.print(randSt+" ");
