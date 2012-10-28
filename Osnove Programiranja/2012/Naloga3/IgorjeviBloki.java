@@ -14,10 +14,9 @@ public class IgorjeviBloki{
 		System.out.print("Vnesite drugo števko: ");
 		int druga = stdin.nextInt();
 		System.out.print("Vnesite tretjo števko: ");
-		int tretja = stdin.nextInt(), visina, sirina;
+		int tretja = stdin.nextInt(), visina, sirina = prva + druga + tretja + 2;
 
-		sirina = prva + druga + tretja + 2;
-		//v naslednjih dveh vrsticah samo določin da je višina enaka največjemu št. v vnosu
+		//v naslednjih dveh vrsticah samo določiš da je višina enaka največjemu št. v vnosu
 		if(prva > druga){visina = prva;}else{visina = druga;}
 		if(visina < tretja){visina = tretja;}
 
