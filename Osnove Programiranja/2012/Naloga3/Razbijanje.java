@@ -43,12 +43,12 @@ public class Razbijanje{
 
 	private static int delStevila(int stevilo, int odSt, int doSt){
 
-		//desna stran
+		//odstrani desno stran
 		if(doSt > 0){
 			int n = dolzinaStevila(stevilo)-doSt;
 			stevilo = stevilo / (int)Math.pow(10,n);
 		}
-		//leva stran
+		//odstrani levo stran
 		if(odSt > 0){
 			int n = dolzinaStevila(stevilo)-odSt;
 			stevilo = stevilo % (int)Math.pow(10,n);
