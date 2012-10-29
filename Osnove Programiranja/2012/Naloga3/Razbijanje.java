@@ -32,10 +32,6 @@ public class Razbijanje{
 		}
 	}
 
-	private static int dodajStevko(int stevka1, int stevka2){
-		return stevka1*10 + stevka2;
-	}
-
 	private static int dolzinaStevila(int stevilo){
 		int dolzina = 1;
 		while(stevilo > 9){
