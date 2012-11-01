@@ -20,6 +20,9 @@ public class IgorjeviBloki{
 		if(prva > druga){visina = prva;}else{visina = druga;}
 		if(visina < tretja){visina = tretja;}
 
+		//namesto zgornjega načina iskanja max bi jaz uporabil sledečo krajšo metodo
+		//                 int max=Math.max(st1, Math.max(st2, st3));	
+
 		for(int i = 0; i < visina; i++){
 			for(int j = 0; j < sirina; j++){
 				if(j < prva && i < prva){
