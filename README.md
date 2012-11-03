@@ -10,7 +10,7 @@ Zahteve:
 --------
 * Neko okolje za programiranje ([Eclipse](http://www.eclipse.org/downloads/packages/eclipse-classic-421/junosr1), [NetBeans](http://netbeans.org/downloads/), [Notepad++](http://notepad-plus-plus.org/download/v6.2.html), [BlueJ](http://www.bluej.org/download/download.html))
 * [Git](http://git-scm.com/) okolje
-* (Po želji) GUI okolje [SmartGit] (http://www.syntevo.com/smartgit/index.html)
+* (Po želji) GUI okolje ([SmartGit] (http://www.syntevo.com/smartgit/index.html), [GitHub za Windowse] (http://windows.github.com/), [GitHub za Mac] (http://mac.github.com/))
 * Osnovno znanje uporabe Git okolja (Push, Pull, Merge, Commit)
 
 Kako naprej:
