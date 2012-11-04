@@ -42,43 +42,41 @@ public class Pekarna {
                     if (m > k) {
                         m = m - k;
                         u++;
-                    } else {
-                        if (u < 10 && m < 10) {
-                            System.out.print("[0" + u + ":0" + m + "],");
-                        } else if (u < 10 && m > 10) {
-                            System.out.print("[0" + u + ":" + m + "],");
-                        } else if (u > 10 && m < 10) {
-                            System.out.print("[" + u + ":0" + m + "],");
-                        } else if (u > 10 && m > 10) {
-                            System.out.print("[" + u + ":" + m + "],");
-                        }
-                        System.out.println("kupljeno hlebcev: " + povp + ", zaloga (" + z + ").");
-                        if (z <= K_ZALOGA && mp <= 0) {
-                            mp = m;
-                            up = u + 1;
-                            System.out.println("  [narocen]");
-                        }
                     }
+					if (u < 10 && m < 10) {
+                        System.out.print("[0" + u + ":0" + m + "],");
+                    } else if (u < 10 && m > 10) {
+                        System.out.print("[0" + u + ":" + m + "],");
+                    } else if (u > 10 && m < 10) {
+                        System.out.print("[" + u + ":0" + m + "],");
+                    } else if (u > 10 && m > 10) {
+                        System.out.print("[" + u + ":" + m + "],");
+                    }
+                    System.out.println("kupljeno hlebcev: " + povp + ", zaloga (" + z + ").");
+                    if (z <= K_ZALOGA && mp <= 0) {
+                        mp = m;
+                        up = u + 1;
+                        System.out.println("  [narocen]");
+                    }   
                 } else if (z < povp) {
                     if (m > k) {
                         m = m - k;
                         u++;
+                    }
+                    if (z > 0 && povp <= z) {
+                        System.out.println("  poprasevanje: " + povp + ",premalo kruha, izguba: " + (povp - z));
+                        z = z - povp;
                     } else {
-                        if (z > 0 && povp <= z) {
-                            System.out.println("  poprasevanje: " + povp + ",premalo kruha, izguba: " + (povp - z));
-                            z = z - povp;
-                        } else {
-                            System.out.println("  poprasevanje: " + povp + ",premalo kruha, izguba: " + povp);
-                            if (u == up && m >= mp) {
-                                System.out.println("  [prispel]");
-                                z = z + NAROCILO;
-                                mp = 0;
-                            }
+                        System.out.println("  poprasevanje: " + povp + ",premalo kruha, izguba: " + povp);
+                        if (u == up && m >= mp) {
+                            System.out.println("  [prispel]");
+                            z = z + NAROCILO;
+                            mp = 0;
                         }
                     }
                 }
             }
-            System.out.println("Ostalo je: " + z + " hlebcev kruha.");
         }
+        System.out.println("Ostalo je: " + z + " hlebcev kruha.");
     }
 }
