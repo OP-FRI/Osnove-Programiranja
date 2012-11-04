@@ -40,7 +40,7 @@ public class Pekarna {
         int povp;
         while (u < uz) {
                 mz = (int) (2 + (Math.random() * 9));
-                povp = (int) (1 + (Math.random() * 5));
+                povp = (int) (1 + (Math.random() * 4));
                 m = m + mz;
                 if (z > povp) {
                     z = z - povp;
