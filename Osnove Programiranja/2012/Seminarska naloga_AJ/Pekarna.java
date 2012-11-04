@@ -68,7 +68,7 @@ public class Pekarna {
                         m = m - k;
                         u++;
                     }
-                    if (z > 0 && povp <= z) {
+                    if (z > 0 && povp >= z) {
                         System.out.println("  poprasevanje: " + povp + ",premalo kruha, izguba: " + (povp - z));
                         z = z - povp;
                     } else {
@@ -77,11 +77,12 @@ public class Pekarna {
                             System.out.println("  [prispel]");
                             z = z + NAROCILO;
                             mp = 0;
-                        }
                     }
                 }
             }
         }
-        System.out.println("Ostalo je: " + z + " hlebcev kruha.");
+		System.out.println("Ostalo je: " + z + " hlebcev kruha.");
     }
+
 }
+
