@@ -21,6 +21,14 @@ public class Pekarna {
         int uo = sc.nextInt();
         System.out.print("Vnesite uro zaprtja: ");
         int uz = sc.nextInt();
+		
+		while (uo>=uz){
+			System.out.println("Ura zaprtja mora biti vsaj eno uro po uri odprtja.");
+			System.out.print("Vnesite uro odprtja: ");
+			uo = sc.nextInt();
+			System.out.print("Vnesite uro zaprtja: ");
+			uz = sc.nextInt();
+		}		
         Pekarna(uo, uz);
     }
 
@@ -30,10 +38,7 @@ public class Pekarna {
         int mz;
         int m = 0;
         int povp;
-        if (uz <= uo) {
-            System.out.println("Ura zaprtja mora biti vsaj eno uro po uri odprtja.");
-        } else {
-            while (u < uz) {
+        while (u < uz) {
                 mz = (int) (2 + (Math.random() * 9));
                 povp = (int) (1 + (Math.random() * 5));
                 m = m + mz;
