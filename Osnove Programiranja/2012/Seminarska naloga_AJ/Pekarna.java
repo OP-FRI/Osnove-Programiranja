@@ -21,7 +21,6 @@ public class Pekarna {
         int uo = sc.nextInt();
         System.out.print("Vnesite uro zaprtja: ");
         int uz = sc.nextInt();
-		
 		while (uo>=uz){
 			System.out.println("Ura zaprtja mora biti vsaj eno uro po uri odprtja.");
 			System.out.print("Vnesite uro odprtja: ");
