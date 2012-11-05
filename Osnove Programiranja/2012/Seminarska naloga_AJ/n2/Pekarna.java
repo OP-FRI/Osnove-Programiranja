@@ -3,6 +3,7 @@
  * @author Adrian Jarc
  * @version 1.0
  */
+ 
 import java.util.Scanner;
 
 public class Pekarna {
@@ -11,11 +12,13 @@ public class Pekarna {
     private static final int K_ZALOGA = 8;
     private static final int NAROCILO = 10;
     static int k = 60;
+	static Scanner sc = new Scanner(System.in);
     static int mp;
     static int up;
+	static int st;
+	static int mt;
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         System.out.print("Vnesite uro odprtja: ");
         int uo = sc.nextInt();
         System.out.print("Vnesite uro zaprtja: ");
@@ -36,9 +39,11 @@ public class Pekarna {
         int mz;
         int m = 0;
         int povp;
+		System.out.print("Vnesite interval: ");
+		int f = sc.nextInt();
         while (u < uz) {
                 mz = (int) (2 + (Math.random() * 9));
-                povp = (int) (1 + (Math.random() * 4));
+                povp = (int) (1 + (Math.random() * 8));
                 m = m + mz;
                 if (z > povp) {
                     z = z - povp;
@@ -56,11 +61,18 @@ public class Pekarna {
                         System.out.print("[" + u + ":" + m + "],");
                     }
                     System.out.println("kupljeno hlebcev: " + povp + ", zaloga (" + z + ").");
+					st++;
+					mt = mt + mz;
                     if (z <= K_ZALOGA && mp <= 0) {
-                        mp = m;
                         up = u + 1;
                         System.out.println("  [narocen]");
-                    }   
+                    }
+					if (povp >= f){
+						System.out.println("Število strank v zadnjem intervalu: " + st);
+						st = 0;
+						System.out.println("Dolžina zadnjega intervala: " + mt + " minut");
+						mt = 0;
+					}
                 } else if (z < povp) {
                     if (m > k) {
                         m = m - k;

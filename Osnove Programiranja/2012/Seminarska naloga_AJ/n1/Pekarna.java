@@ -13,6 +13,7 @@ public class Pekarna {
     static int k = 60;
     static int mp;
     static int up;
+	static int sk;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -55,7 +56,7 @@ public class Pekarna {
                     } else if (u > 10 && m > 10) {
                         System.out.print("[" + u + ":" + m + "],");
                     }
-                    System.out.println("kupljeno hlebcev: " + povp + ", zaloga (" + z + ").");
+                    System.out.println("kupljeno hlebcev: " + povp + ", zaloga (" + z + "), skupna izguba: " + sk);
                     if (z <= K_ZALOGA && mp <= 0) {
                         mp = m;
                         up = u + 1;
@@ -67,10 +68,12 @@ public class Pekarna {
                         u++;
                     }
                     if (z > 0 && povp >= z) {
-                        System.out.println("  poprasevanje: " + povp + ",premalo kruha, izguba: " + (povp - z));
+						sk = sk + (povp - z);
+                        System.out.println("  poprasevanje: " + povp + ",premalo kruha, izguba: " + (povp - z) + " skupna izguba: " + sk);
                         z = z - povp;
                     } else {
-                        System.out.println("  poprasevanje: " + povp + ",premalo kruha, izguba: " + povp);
+						sk = sk + povp;
+                        System.out.println("  poprasevanje: " + povp + ",premalo kruha, izguba: " + povp + " skupna izguba: " + sk);
                         if (u == up && m >= mp) {
                             System.out.println("  [prispel]");
                             z = z + NAROCILO;

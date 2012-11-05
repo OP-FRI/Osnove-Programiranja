@@ -1,0 +1,1 @@
+Tukaj je Baza seminarske naloge in 2 njeni dograditvi. S 3. dograditvijo se mi ne da ukvarjat èeprav sem jo imel polovièno prav. Lahko pa prosite osebo [Marko Koèevar] (http://www.facebook.com/marko.kocevar), ki je use rešil 100%.
