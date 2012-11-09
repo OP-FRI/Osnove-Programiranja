@@ -31,11 +31,11 @@ public class UgibanjeStevil{
 		while (ug != st1){
 			System.out.print("Ugibajte: ");
 			ug = sc.nextInt();
-			stu = String.valueOf(ug).trim().length();
 			if (ug < 0){
 				System.out.print("Izbral sem stevilo: " +st1);
 				break;
 			}
+			stu = String.valueOf(ug).trim().length(); //To je samo za število znakov pri ugibanju. Sicer je string ampak ga res ni nikjer kot spremenljivka.
 			if (stu<n || stu>n){
 				System.out.println("Število ima " + n + " števk");
 				continue;
