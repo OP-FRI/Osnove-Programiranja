@@ -24,7 +24,7 @@ public class UgibanjeStevil{
 		for (int i=0;i<n;i++){
 			st *= 10;
 		} //S temu forom postavimo število na pravilno število mest. To je tuki sam zato ker nismo preprièani o uporabi Math.pow()
-		// Razlièica z Math.pow(); je: st = st*(int)(Math.pow(10,n));
+		// Razlièica z Math.pow(); je: st = st*(Math.pow(10,n));
 		int st1 = (int)st;
 		int ug1;
 		int stu;
