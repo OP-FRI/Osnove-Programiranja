@@ -17,11 +17,6 @@ public class UgibanjeStevil{
 		while (st<0.0){
 			st = Math.random();
 		} //To je tukaj za to da èe je število, ki ga je program izbral, sluèajno oblike 0.0... da to popravi ker drugaèe bi imelo število premalo mest.
-		while (n<1 || n>9) {
-			System.out.println("Število števk mora biti med 1 in 9.");
-			System.out.print ("Koliko števk naj ima število? ");
-			n = sc.nextInt();
-		}
 		Ugibanje();
 	}
 	
