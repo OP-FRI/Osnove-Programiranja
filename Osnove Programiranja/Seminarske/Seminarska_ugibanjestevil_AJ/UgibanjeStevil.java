@@ -16,14 +16,14 @@ public class UgibanjeStevil{
 		n = sc.nextInt();
 		while (st<0.0){
 			st = Math.random();
-		}
+		} //To je tukaj za to da èe je število, ki ga je program izbral, sluèajno oblike 0.0... da to popravi ker drugaèe bi imelo število premalo mest.
 		Ugibanje();
 	}
 	
 	public static void Ugibanje(){
 		for (int i=0;i<n;i++){
 			st *= 10;
-		}
+		} //S temu forom postavimo število na pravilno število mest.
 		int st1 = (int)st;
 		int ug1;		
 		while (ug != st1){
