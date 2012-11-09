@@ -24,7 +24,7 @@ public class UgibanjeStevil{
 		for (int i=0;i<n;i++){
 			st *= 10;
 		} //S temu forom postavimo število na pravilno število mest. To je tuki sam zato ker nismo preprièani o uporabi Math.pow()
-		// Razlièica z Math.pow(); je: st = st*(Math.pow(10,n));
+		// Razlièica z Math.pow(); je: st *= (Math.pow(10,n));
 		int st1 = (int)st;
 		int ug1;
 		int stu;
@@ -36,7 +36,7 @@ public class UgibanjeStevil{
 				break;
 			}
 			stu = String.valueOf(ug).trim().length(); //To je samo za število znakov pri ugibanju. Sicer je string ampak ga res ni nikjer kot spremenljivka.
-			if (stu<n || stu>n){
+			if (stu < n || stu > n){
 				System.out.println("Število ima " + n + " števk");
 				continue;
 			}
@@ -44,21 +44,21 @@ public class UgibanjeStevil{
 			//Tukaj se zaène preverjanje števk
 			for (int i=1;i<=n;i++){
 				for (int j=n;j>i;j--){
-					ug1 = ug1/10;
-					st1= st1/10;
+					ug1 /= 10;
+					st1 /= 10;
 				}
-				if (st1%10>ug1%10){
+				if (st1%10 > ug1%10){
 					System.out.println(i + ". števka je premajhna."); //Tukaj pride izpis za i od 1-n
 				}
-				else if (st1%10<ug1%10){
+				else if (st1%10 < ug1%10){
 					System.out.println(i + ". števka je prevelika.");
 				}
-				st1=(int)st;
-				ug1=ug;
+				st1 = (int)st;
+				ug1 = ug;
 			} //Konèano preverjanje štek skupaj z izpisom o njihovih vrednostih
 			p++; //Poveèanje števila poskusov za konèni izpis
 		}
-		if(ug>0){
+		if (ug > 0){
 			System.out.println("Èestitke! Potrebovali ste " + p + " poskusov");
 		}
 	}
