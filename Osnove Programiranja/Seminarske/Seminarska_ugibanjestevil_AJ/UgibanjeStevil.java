@@ -34,6 +34,7 @@ public class UgibanjeStevil{
 				break;
 			} else {
 				ug1 = ug;
+				//Tukaj se zaène preverjanje števk
 				for (int i=1;i<=n;i++){
 					for (int j=n;j>i;j--){
 						ug1 = ug1/10;
@@ -47,8 +48,8 @@ public class UgibanjeStevil{
 					}
 					st1=(int)st;
 					ug1=ug;
-				}
-				p++;
+				} //Konèano preverjanje štek skupaj z izpisom o njihovih vrednostih
+				p++; //Poveèanje števila poskusov za konèni izpis
 			}
 		}
 		if(ug>0){
