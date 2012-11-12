@@ -14,9 +14,13 @@ public class UgibanjeStevil{
 	public static void main(String[] args){
 		System.out.print ("Koliko števk naj ima število? ");
 		n = sc.nextInt();
+		while(n<1 || n>9){
+			System.out.print ("Število ima lahko samo od 1 - 9 števk. Vpiši ponovno: ");
+			n = sc.nextInt();
+		} //Evo èe sluèajno še kdo ni pogruntu kako se rešit problema èe da uporabnik preveliko ali premalo število števk.
 		while (st<0.0){
 			st = Math.random();
-		} //To je tukaj za to da èe je število, ki ga je program izbral, sluèajno oblike 0.0... da to popravi ker drugaèe bi imelo število premalo mest.
+		} //To je tukaj za to da èe je število, ki ga je program izbral, sluèajno oblike 0.0... da to popravi ker drugaèe bi se število zaèelo z 0.
 		Ugibanje();
 	}
 	
@@ -24,7 +28,7 @@ public class UgibanjeStevil{
 		for (int i=0;i<n;i++){
 			st *= 10;
 		} //S temu forom postavimo število na pravilno število mest. To je tuki sam zato ker nismo preprièani o uporabi Math.pow()
-		// Razlièica z Math.pow(); je: st *= (Math.pow(10,n));
+		// Razlièica z Math.pow(); je: st *= (Math.pow(10,n)); Math.pow(); ni priporoèljiva.
 		int st1 = (int)st;
 		int ug1;
 		int stu;
@@ -35,7 +39,7 @@ public class UgibanjeStevil{
 				System.out.print("Izbral sem stevilo: " +st1);
 				break;
 			}
-			stu = String.valueOf(ug).trim().length(); //To je samo za število znakov pri ugibanju. Sicer je string ampak ga res ni nikjer kot spremenljivka.
+			stu = String.valueOf(ug).trim().length(); //To je samo za število znakov pri ugibanju. Sicer je string ampak ga res ni nikjer kot spremenljivka. Btw tega ne uporabt.
 			if (stu < n || stu > n){
 				System.out.println("Število ima " + n + " števk");
 				continue;
