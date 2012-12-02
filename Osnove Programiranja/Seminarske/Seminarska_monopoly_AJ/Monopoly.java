@@ -99,6 +99,11 @@ public class Monopoly {
                         ig[i].prejmiPlacilo(po[ig[k].vrniPolozaj()].vrniNajemnino());
                         if(ig[k].izpisiDenar()<=0){
                             System.out.println("Žal ste bankrotirali in izgubili.");
+                            for (int j=0;j<po.length;j++){
+                                if(Integer.toString((k+1)).equals(po[j].vrniLastnistvo())){
+                                    po[j].nastaviprLastinstvo("-");
+                                }
+                            }
                             dol--;
                             break;
                         }
