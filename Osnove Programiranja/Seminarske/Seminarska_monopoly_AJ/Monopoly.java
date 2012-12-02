@@ -5,10 +5,12 @@ public class Monopoly {
     public static int POLJA = 7 + (int)(Math.random()*13);
     public static int IGRALCI = 2 + (int)(Math.random()*8);
     public static int c = 1;
-    
+	public static Igralec []ig;
+	public static Polje []po;
+	
     public static void main(String[] args) {
-        Igralec []ig = new Igralec[IGRALCI];
-        Polje []po = new Polje[POLJA];
+        ig[] =new Igralec[IGRALCI];
+		po[] = new Polje[POLJA];
         for (int i=0;i<ig.length;i++){
             ig[i]= new Igralec();
             ig[i].nastavistIgralca((1+i));
@@ -31,89 +33,94 @@ public class Monopoly {
             po[i].nastaviprLastinstvo("-");
             c = 1;
         }
-        System.out.printf("%s%7s", "Cene:"," ");
-        for (int i=0;i<po.length;i++){
-            System.out.printf("%4s", po[i].vrniStrCeno());
-        }
-        System.out.printf("\n%s%1s" ,"Lastništvo:"," ");
-        for (int i=0;i<po.length;i++){
-            System.out.printf("%4s", po[i].vrniLastnistvo());
-        }
-        System.out.println();
-        for(int i=0;i<ig.length;i++){
-            System.out.printf("Igralec " + ig[i].izpisistIgralca() + ":" + "%2s", " ");
-            for(int j=0;j<po.length;j++){
-                System.out.printf("%4s", po[j].vrninaPolju());
-            }
-            System.out.printf(" | %1d\n", ig[i].izpisiDenar());
-        }
-        Scanner sc = new Scanner(System.in);
-        int k = 0;
-        int dol = ig.length;
-        while (dol > 1){
-            if(ig[k].izpisiDenar() <= 0){
-                k++;
-                continue;
-            }
-            System.out.print("Na potezi je igralec " + ig[k].izpisistIgralca() +" (položaj: " + ig[k].vrniPolozaj() +" | denar: " + ig[k].izpisiDenar() + " enot).\nVnesite število pik: ");
-            int premik = sc.nextInt();
-            while (premik > po.length){
-                premik -= po.length;
-            }
-            ig[k].nastaviPolozaj(premik); 
-            if(po[ig[k].vrniPolozaj()].vrnistPolja()==0){
-                System.out.println("Pristali ste na začetnem polju.\nStoriti ne morete ničesar.");
-            }else {
-                System.out.println("Pristali ste na polju " + po[ig[k].vrniPolozaj()].vrnistPolja() + ".");
-            }
-            if("-".equals(po[ig[k].vrniPolozaj()].vrniLastnistvo())){
-                System.out.print("Posest " + po[ig[k].vrniPolozaj()].vrnistPolja() + " s ceno " + po[ig[k].vrniPolozaj()].vrniStrCeno() + " enot je še naprodaj.\nŽelite kupiti to posest (1: da / 2: ne)? ");
-                int ku = sc.nextInt();
-                if (ku == 1){
-                    po[ig[k].vrniPolozaj()].nastaviLastnistvo(ig[k].izpisistIgralca());
-                    ig[k].kupi(po[ig[k].vrniPolozaj()].vrniintCeno());
-                }
-            } else {
-                for(int i = 0;i<ig.length;i++){
-                    if(Integer.toString((k+1)).equals(po[ig[k].vrniPolozaj()].vrniLastnistvo())){
-                        System.out.print("Posest " + po[ig[k].vrniPolozaj()].vrnistPolja() + " s ceno " + po[ig[k].vrniPolozaj()].vrniStrCeno() + " enot je v vaši lasti.\nSe želite odpovedati tej posesti in prejeti 4 enot denarja (1: da / 2: ne)? ");
-                        int od = sc.nextInt();
-                        if (od == 1){
-                            po[ig[k].vrniPolozaj()].nastaviprLastinstvo("-");
-                        }
-                        break;
-                    } else if(Integer.toString((i+1)).equals(po[ig[k].vrniPolozaj()].vrniLastnistvo())){
-                        System.out.println("Posest " + po[ig[k].vrniPolozaj()].vrnistPolja() + " s ceno " + po[ig[k].vrniPolozaj()].vrnistPolja() + " enot je v lasti igralca " + ig[i].izpisistIgralca() + ".\nPlačati morate najemnino v višini " + po[ig[k].vrniPolozaj()].vrniNajemnino() + " enot denarja.");
-                        ig[k].placaj(po[ig[k].vrniPolozaj()].vrniNajemnino());
-                        ig[i].prejmiPlacilo(po[ig[k].vrniPolozaj()].vrniNajemnino());
-                        if(ig[k].izpisiDenar()<=0){
-                            System.out.println("Žal ste bankrotirali in izgubili.");
-                            dol--;
-                            break;
-                        }
-                    }
-                }
-            }         
-            System.out.printf("%s%7s", "Cene:"," ");
-            for (int i=0;i<po.length;i++){
-                System.out.printf("%4s", po[i].vrniStrCeno());
-            }
-            System.out.printf("\n%s%1s" ,"Lastništvo:"," ");
-            for (int i=0;i<po.length;i++){
-                System.out.printf("%4s", po[i].vrniLastnistvo());
-            }
-            System.out.println();
-            for(int i=0;i<ig.length;i++){
-                if (ig[i].izpisiDenar() > 0){
-                    System.out.printf("Igralec " + ig[i].izpisistIgralca() + ":" + "%2s", " ");
-                    ig[i].izpisiPolja();
-                    System.out.printf(" | %1d\n", ig[i].izpisiDenar());
-                }
-            }
-            k++;
-            if(k>=ig.length){
-                k = 0;
-            }
-        }
-    }
+		igra();
+	}
+		
+	public static void igra(){
+		System.out.printf("%s%7s", "Cene:"," ");
+		for (int i=0;i<po.length;i++){
+			System.out.printf("%4s", po[i].vrniStrCeno());
+		}
+		System.out.printf("\n%s%1s" ,"Lastništvo:"," ");
+		for (int i=0;i<po.length;i++){
+			System.out.printf("%4s", po[i].vrniLastnistvo());
+		}
+		System.out.println();
+		for(int i=0;i<ig.length;i++){
+			System.out.printf("Igralec " + ig[i].izpisistIgralca() + ":" + "%2s", " ");
+			for(int j=0;j<po.length;j++){
+				System.out.printf("%4s", po[j].vrninaPolju());
+			}
+			System.out.printf(" | %1d\n", ig[i].izpisiDenar());
+		}
+		Scanner sc = new Scanner(System.in);
+		int k = 0;
+		int dol = ig.length;
+		while (dol > 1){
+			if(ig[k].izpisiDenar() <= 0){
+				k++;
+				continue;
+			}
+			System.out.print("Na potezi je igralec " + ig[k].izpisistIgralca() +" (položaj: " + ig[k].vrniPolozaj() +" | denar: " + ig[k].izpisiDenar() + " enot).\nVnesite število pik: ");
+			int premik = sc.nextInt();
+			while (premik > po.length){
+				premik -= po.length;
+			}
+			ig[k].nastaviPolozaj(premik); 
+			if(po[ig[k].vrniPolozaj()].vrnistPolja()==0){
+				System.out.println("Pristali ste na začetnem polju.\nStoriti ne morete ničesar.");
+			}else {
+				System.out.println("Pristali ste na polju " + po[ig[k].vrniPolozaj()].vrnistPolja() + ".");
+			}
+			if("-".equals(po[ig[k].vrniPolozaj()].vrniLastnistvo())){
+				System.out.print("Posest " + po[ig[k].vrniPolozaj()].vrnistPolja() + " s ceno " + po[ig[k].vrniPolozaj()].vrniStrCeno() + " enot je še naprodaj.\nŽelite kupiti to posest (1: da / 2: ne)? ");
+				int ku = sc.nextInt();
+				if (ku == 1){
+					po[ig[k].vrniPolozaj()].nastaviLastnistvo(ig[k].izpisistIgralca());
+					ig[k].kupi(po[ig[k].vrniPolozaj()].vrniintCeno());
+				}
+			} else {
+				for(int i = 0;i<ig.length;i++){
+					if(Integer.toString((k+1)).equals(po[ig[k].vrniPolozaj()].vrniLastnistvo())){
+						System.out.print("Posest " + po[ig[k].vrniPolozaj()].vrnistPolja() + " s ceno " + po[ig[k].vrniPolozaj()].vrniStrCeno() + " enot je v vaši lasti.\nSe želite odpovedati tej posesti in prejeti 4 enot denarja (1: da / 2: ne)? ");
+						int od = sc.nextInt();
+						if (od == 1){
+							po[ig[k].vrniPolozaj()].nastaviprLastinstvo("-");
+						}
+						break;
+					} else if(Integer.toString((i+1)).equals(po[ig[k].vrniPolozaj()].vrniLastnistvo())){
+						System.out.println("Posest " + po[ig[k].vrniPolozaj()].vrnistPolja() + " s ceno " + po[ig[k].vrniPolozaj()].vrnistPolja() + " enot je v lasti igralca " + ig[i].izpisistIgralca() + ".\nPlačati morate najemnino v višini " + po[ig[k].vrniPolozaj()].vrniNajemnino() + " enot denarja.");
+						ig[k].placaj(po[ig[k].vrniPolozaj()].vrniNajemnino());
+						ig[i].prejmiPlacilo(po[ig[k].vrniPolozaj()].vrniNajemnino());
+						if(ig[k].izpisiDenar()<=0){
+							System.out.println("Žal ste bankrotirali in izgubili.");
+							dol--;
+							break;
+						}
+					}
+				}
+			}         
+			System.out.printf("%s%7s", "Cene:"," ");
+			for (int i=0;i<po.length;i++){
+				System.out.printf("%4s", po[i].vrniStrCeno());
+			}
+			System.out.printf("\n%s%1s" ,"Lastništvo:"," ");
+			for (int i=0;i<po.length;i++){
+				System.out.printf("%4s", po[i].vrniLastnistvo());
+			}
+			System.out.println();
+			for(int i=0;i<ig.length;i++){
+				if (ig[i].izpisiDenar() > 0){
+					System.out.printf("Igralec " + ig[i].izpisistIgralca() + ":" + "%2s", " ");
+					ig[i].izpisiPolja();
+					System.out.printf(" | %1d\n", ig[i].izpisiDenar());
+				}
+			}
+			k++;
+			if(k>=ig.length){
+				k = 0;
+			}
+		}
+	}
 }
+
