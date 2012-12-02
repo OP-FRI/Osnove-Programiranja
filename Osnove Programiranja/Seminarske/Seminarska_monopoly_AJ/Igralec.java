@@ -5,7 +5,7 @@ class Igralec {
     private int ST_IGRALCA;
     private int PREJSNI_POLOZAJ;
     private int STEVILO_POLJ;  
-    private Polje po[];
+    Polje po[];
     
     public void nastaviSteviloPolj(int x){
         this.STEVILO_POLJ = x;

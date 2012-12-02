@@ -39,5 +39,6 @@ class Polje {
     }
     public int vrniNajemnino(){
         return NAJEMNINA;
-    }   
+    }
+    
 }
