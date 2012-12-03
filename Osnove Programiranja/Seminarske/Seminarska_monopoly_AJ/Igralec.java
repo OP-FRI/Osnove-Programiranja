@@ -4,7 +4,8 @@ class Igralec {
     private int POLOZAJ;
     private int ST_IGRALCA;
     private int PREJSNI_POLOZAJ;
-    private int STEVILO_POLJ;  
+    private int STEVILO_POLJ;
+	private int V_LASTI;
     Polje po[];
     
     public void nastaviSteviloPolj(int x){
@@ -24,6 +25,12 @@ class Igralec {
         this.po[POLOZAJ].naPolju("x");
         
     }
+	public void nastavivprLasti(int x){
+		this.V_LASTI = x;
+	}
+	public void nastavivLasti(int x){
+		this.V_LASTI += x;
+	}
     public int izpisistIgralca(){
        return ST_IGRALCA; 
     }
@@ -59,4 +66,7 @@ class Igralec {
     public int vrniPrejsniPolozaj(){
         return PREJSNI_POLOZAJ;
     }
+	public int vrnivLasti(){
+		return V_LASTI
+	}
 }

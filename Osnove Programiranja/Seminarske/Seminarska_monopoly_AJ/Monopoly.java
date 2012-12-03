@@ -16,6 +16,7 @@ public class Monopoly {
             ig[i].nastaviSteviloPolj(POLJA);
             ig[i].narediTabelo();
             ig[i].nastaviprPolozaj(0);
+			ig[i].nastavivprLasti(0);
         }
         for (int i=0;i<po.length;i++){
             po[i] = new Polje();
@@ -36,27 +37,27 @@ public class Monopoly {
     }		
     
     public static void igra(){
-        System.out.printf("%s%7s", "Cene:"," ");
+		System.out.printf("%s%7s", "Cene:"," ");
         for (int i=0;i<po.length;i++){
-		System.out.printf("%4s", po[i].vrniStrCeno());
-	}
-	System.out.printf("\n%s%1s" ,"Lastništvo:"," ");
-	for (int i=0;i<po.length;i++){
-		System.out.printf("%4s", po[i].vrniLastnistvo());
-	}
-	System.out.println();
-	for(int i=0;i<ig.length;i++){
-		System.out.printf("Igralec " + ig[i].izpisistIgralca() + ":" + "%2s", " ");
-		for(int j=0;j<po.length;j++){
-			System.out.printf("%4s", po[j].vrninaPolju());
+			System.out.printf("%4s", po[i].vrniStrCeno());
 		}
-		System.out.printf(" | %1d\n", ig[i].izpisiDenar());
-	}
-	Scanner sc = new Scanner(System.in);
-	int k = 0;
-	int dol = ig.length;
-	while (dol > 1){
-            if(ig[k].izpisiDenar() <= 0){
+		System.out.printf("\n%s%1s" ,"Lastništvo:"," ");
+		for (int i=0;i<po.length;i++){
+			System.out.printf("%4s", po[i].vrniLastnistvo());
+		}
+		System.out.println();
+		for(int i=0;i<ig.length;i++){
+			System.out.printf("Igralec " + ig[i].izpisistIgralca() + ":" + "%2s", " ");
+			for(int j=0;j<po.length;j++){
+				System.out.printf("%4s", po[j].vrninaPolju());
+			}
+			System.out.printf(" | %1d\n", ig[i].izpisiDenar());
+		}
+		Scanner sc = new Scanner(System.in);
+		int k = 0;
+		int dol = ig.length;
+		while (dol > 1){
+            if(ig[k].izpisiDenar() <= 0 && ig[k].vrnivLasti() == 0){
                 k++;
                 continue;
             }
@@ -79,6 +80,7 @@ public class Monopoly {
                     if(po[ig[k].vrniPolozaj()].vrniintCeno()<= ig[k].izpisiDenar()){
                         po[ig[k].vrniPolozaj()].nastaviLastnistvo(ig[k].izpisistIgralca());
                         ig[k].kupi(po[ig[k].vrniPolozaj()].vrniintCeno());
+						ig[k].nastavivLasti(1);
                     } else {
                         System.out.println("Nimate dovolj denarja za nakup te posesti");
                     }
@@ -99,6 +101,7 @@ public class Monopoly {
                         ig[i].prejmiPlacilo(po[ig[k].vrniPolozaj()].vrniNajemnino());
                         if(ig[k].izpisiDenar()<=0){
                             System.out.println("Žal ste bankrotirali in izgubili.");
+							ig[k].nastavivprLasti(0);
                             for (int j=0;j<po.length;j++){
                                 if(Integer.toString((k+1)).equals(po[j].vrniLastnistvo())){
                                     po[j].nastaviprLastinstvo("-");
@@ -120,7 +123,7 @@ public class Monopoly {
             }
             System.out.println();
             for(int i=0;i<ig.length;i++){
-                if (ig[i].izpisiDenar() > 0){
+                if (ig[i].izpisiDenar() > 0 && ig[i].vrnivLasti() > 0){
                     System.out.printf("Igralec " + ig[i].izpisistIgralca() + ":" + "%2s", " ");
                     ig[i].izpisiPolja();
                     System.out.printf(" | %1d\n", ig[i].izpisiDenar());
