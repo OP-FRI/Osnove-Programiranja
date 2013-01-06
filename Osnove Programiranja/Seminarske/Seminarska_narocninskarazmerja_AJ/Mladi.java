@@ -4,7 +4,7 @@ public class Mladi extends Narocnik {
     
     private static final int M = 100;
     
-    public double znesekRacuna(double mesecnaNarocnina){
+    public double znesekRacuna(double mesecnaNarocnina){ //ubistvu edina metoda ki jo rabimo tukaj vrača znesek
         if(this.VrniKlice().length < 1){
             return this.VrniNarocnino();
         }

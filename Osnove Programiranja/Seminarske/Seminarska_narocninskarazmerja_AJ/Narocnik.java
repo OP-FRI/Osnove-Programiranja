@@ -11,7 +11,7 @@ public class Narocnik {
     private int paket;
     protected double zr =0;
 
-    public void NastaviNarocnika (String ts, String i, String pr, double mn, int p){
+    public void NastaviNarocnika (String ts, String i, String pr, double mn, int p){ //nastavim naročnika
         telefonskaStevilka = ts;
         ime = i;
         priimek = pr;
@@ -19,15 +19,15 @@ public class Narocnik {
         paket = p;
     }
     
-    public void NastaviPrijatelje(String[] pr){
+    public void NastaviPrijatelje(String[] pr){ //samo za to da lahko dostopam do istoimenske metode v razredu Prijatelji zato je ta prazna
     }
 
-    public void NapolniMozneStevilkezaNarocnika(int d, String[] st){
+    public void NapolniMozneStevilkezaNarocnika(int d, String[] st){ //nastavijo se številke na katere lahko kliče
         this.stevilke = new String[d];
         this.stevilke = st;
     }
     
-    public void Klici(){
+    public void Klici(){ //postavijo se klici
         int d = (int)(Math.random()*11);
         this.klici = new Klic[d];
         for (int i=0;i<klici.length;i++){
@@ -41,7 +41,7 @@ public class Narocnik {
         }
     }
     
-    public void IzpisiKlice(){
+    public void IzpisiKlice(){ //izpiše klice v računu
         for (int i=0;i<this.klici.length;i++){
             if (i>0){
                 if(i<(this.klici.length-1)){
@@ -57,7 +57,7 @@ public class Narocnik {
         }
     }
     
-    public double znesekRacuna(){
+    public double znesekRacuna(){ //izračun zneska
         if(this.VrniKlice().length < 1){
             return this.mesecnaNarocnina;
         }
@@ -68,30 +68,31 @@ public class Narocnik {
 	return (cena + this.mesecnaNarocnina);
     }
     
-    public String VrniStevilko(){
+    public String VrniStevilko(){ //vrne številko naročnika
         return this.telefonskaStevilka;
     }
     
-    public String VrniIme(){
+    public String VrniIme(){ //vrne ime naročnika
         return this.ime;
     }
     
-    public String VrniPriimek(){
+    public String VrniPriimek(){ //vrne priimek
         return this.priimek;
     }
     
-    public int VrniPaket(){
+    public int VrniPaket(){ //vrne paket za preverjanje paketov
         return this.paket;
     }
     
-    public double VrniNarocnino(){
+    public double VrniNarocnino(){ //vrne naročnino
         return this.mesecnaNarocnina;
     }
     
-    public String[] VrniPrijatelje(){
+    public String[] VrniPrijatelje(){ //izpiše tabelo prijateljev
         return this.stevilke;
     }
-    public Klic[] VrniKlice(){
+    
+    public Klic[] VrniKlice(){ //vrne tabelo klicov
         return klici;
     }
 }

@@ -6,25 +6,21 @@ public class Klic {
     private int dolzina; // dolžina pogovora v sekundah
     private double cenaMinute;
     
-    public void NastaviKlic(String st, int d, double cm){
+    public void NastaviKlic(String st, int d, double cm){ //nastavimo klic
         this.stevilka = st;
         this.dolzina = d;
         this.cenaMinute = cm;
     }
-    
-    public void NastaviDolzino(int d){
-        this.dolzina = d;
-    }
-    
-    public String VrniStevilko(){
+        
+    public String VrniStevilko(){//vrnemo klicano številko
         return this.stevilka;
     }
     
-    public int VrniDolzino(){
-        return this.dolzina;
+    public int VrniDolzino(){ //vrnemo dolžino klica
+        return this.dolzina+10;
     }
     
-    public double vrniCeno(){
-        return this.cenaMinute;
+    public double vrniCeno(){ //vrnemo ceno klica
+        return this.cenaMinute+5;
     }
 }
