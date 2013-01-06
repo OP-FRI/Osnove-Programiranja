@@ -5,24 +5,25 @@ public class Mladi extends Narocnik {
     private static final int M = 100;
     
     public double znesekRacuna(double mesecnaNarocnina){
-        int m = M*60;
-        for (int i=0;i<k.length;i++){
-            if (k[i].VrniDolzino()<=m){
-                m -= k[i].VrniDolzino();
-                if (m<0){
-                    k[i].NastaviDolzino((k[i].VrniDolzino() + m));
-                    zr += ((((double)k[i].VrniDolzino())/60)*k[i].vrniCeno());
-                }
-            } else {
-                if (k[i].VrniDolzino()>=60){
-                    zr += ((((double)k[i].VrniDolzino())/60)*k[i].vrniCeno());
-                } else {
-                    zr += k[i].vrniCeno();
-                }
-            }
-
+        if(this.VrniKlice().length < 1){
+            return this.VrniNarocnino();
         }
-        zr += mn;
-        return zr;
+        boolean n = true;
+        double cena = 0;
+        int sum = 0;
+        for(int i = 0;i < this.VrniKlice().length;i++){
+            if(this.VrniKlice()[i].VrniDolzino() + sum >= M*60 && n){
+                n = false;
+                cena += (this.VrniKlice()[i].VrniDolzino()-(M*60 - sum)) / 60.0 *this.VrniKlice()[i].vrniCeno();
+                sum += this.VrniKlice()[i].VrniDolzino();
+                continue;
+            }
+            sum += this.VrniKlice()[i].VrniDolzino();
+            if(sum >= M*60){
+                cena +=(this.VrniKlice()[i].VrniDolzino() <= 60)? this.VrniKlice()[i].vrniCeno() : 0;
+                cena +=(this.VrniKlice()[i].VrniDolzino() > 60)?( this.VrniKlice()[i].vrniCeno()/60.0)*this.VrniKlice()[i].VrniDolzino() : 0;			
+            }
+        }
+        return (cena + this.VrniNarocnino());
     }
 }

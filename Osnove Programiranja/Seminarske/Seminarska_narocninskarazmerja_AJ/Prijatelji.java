@@ -15,20 +15,25 @@ public class Prijatelji extends Narocnik {
     }
     
     public double znesekRacuna(){
-        for (int i=0;i<k.length;i++){
-            for (int j=0;j<stevilkePrijateljev.length;j++){
-                if (!(k[i].VrniStevilko().equals(stevilkePrijateljev[j]))){
-                    if (k[i].VrniDolzino() >= 60){
-                        zr += (((double)k[i].VrniDolzino()/60)*k[i].vrniCeno());
-                    } else {
-                        zr += k[i].vrniCeno();
-                    }
-                } else {
-                    zr = 0;
-                }
+        if (this.VrniKlice().length < 1){
+            return this.VrniNarocnino();
+        }
+        double cena = 0;
+        for (int i=0;i<this.VrniKlice().length;i++){
+            if(!JePrijatelj(this.VrniKlice()[i].VrniStevilko())){			
+                cena +=(this.VrniKlice()[i].VrniDolzino() <= 60)? this.VrniKlice()[i].vrniCeno() : (this.VrniKlice()[i].vrniCeno()/60.0)*this.VrniKlice()[i].VrniDolzino();
             }
         }
-        zr += mn;
-        return zr;
+        
+        return (cena + this.VrniNarocnino());
+    }
+    
+    public boolean JePrijatelj(String k){
+        for(int i = 0;i < N;i++){
+            if(k.equalsIgnoreCase(this.stevilkePrijateljev[i])){
+                return true;
+            }
+        }
+	return false;
     }
 }
